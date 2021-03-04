@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <button id="redify">Redify</button>
+    <button id="blueify">Blueify</button>
+
+    <button id="add">Add person</button>
+    <input id="name" />
+    <input id="username" />
+
+    <script src="jquery.min.js"></script>
+    <script>
+     $('#redify').click(function() {
+       $('body').css('background', 'red');
+     });
+
+     $('#blueify').click(function() {
+       $('body').css('background', 'blue');
+     });
+
+     var people = [
+       {name: 'Will',
+        username: 'wcrichto'},
+       {name: 'Alex',
+        username: 'apoms'}
+     ];
+
+     var people_list = $('<ul />');
+     for (var i = 0; i < people.length; i++) {
+       var person = people[i];
+       people_list.append(
+         $('<li>' + person.name + ': ' + person.username + '</li>'));
+     }
+     $('body').append(people_list)
+
+     $('#add').click(function() {
+       var person = {
+         name: $('#name').val(),
+         username: $('#username').val(),
+       };
+       people_list.append(
+         $('<li>' + person.name + ': ' + person.username + '</li>'));
+     });
+    </script>
+  </body>
+</html>

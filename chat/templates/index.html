@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    Hello world!
+    <script src="/static/jquery.min.js"></script>
+    <script>
+     $.get('/random_number').then(function(num) {
+       //alert(num);
+     })
+
+     $.ajax({
+       url: '/send_chat',
+       type: 'POST',
+       data: JSON.stringify({message: 'hello'}),
+       contentType: 'application/json',
+       dataType: 'json'
+     });
+
+     $.get('/get_chats').then(function(chats) {
+       console.log(chats);
+     });
+    </script>
+  </body>
+</html>
